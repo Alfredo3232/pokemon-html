@@ -1,4 +1,27 @@
+html {
+    font-family: Georgia, serif;
+    background-image: url('./wallpaper.png');
+    background-position-x: center;
+    background-position-y: center;
+}
+
+h1 {
+    font-size: 3vw;
+    text-align: center;
+    color: white;
+}
+
+label {
+    font-size: 1.5vw;
+}
+
+input {
+    width: 20vw;
+    height: 3vh;
+}
+
 .container {
+    background-color: white;
     text-align: center;
     padding: 0.5rem;
     margin: 1rem auto;
@@ -6,8 +29,4 @@
     border-radius: 12px;
     width: 40vw;
     height: 15vh;
-}
-
-label {
-    font-size: 1.5vw;
 }
