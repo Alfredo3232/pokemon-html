@@ -1,6 +1,6 @@
 html {
     font-family: Georgia, serif;
-    background-image: url('./wallpaper.png');
+    background-image: url('wallpaper.png');
     background-position-x: center;
     background-position-y: center;
 }
@@ -29,4 +29,5 @@ input {
     border-radius: 12px;
     width: 40vw;
     height: 15vh;
+    border: 1px solid #ccc;
 }
