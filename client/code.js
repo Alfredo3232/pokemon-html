@@ -1,27 +1,27 @@
 let addBox = (uuid, uuid2, uuid3) => {
     //creating our container div element
-    let box = document.createElement("div");
-    document.getElementById("pokes").appendChild(box);
-    box.classList.add("container");
+    let box = document.createElement('div');
+    document.getElementById('pokes').appendChild(box);
+    box.classList.add('container');
 
     monsters.push(uuid);
-    box.setAttribute("id", `${uuid}`);
+    box.setAttribute('id', `${uuid}`);
 
 
     //creating  unordered list
-    let un = document.createElement("ul");
-    document.getElementById(`${uuid}`).appendChild(un);
+    let ul = document.createElement('ul');
+    document.getElementById(`${uuid}`).appendChild(ul);
 
     names.push(uuid2);
-    un.setAttribute("id", `${uuid2}`);
+    ul.setAttribute('id', `${uuid2}`);
 
 
     //creating list
-    let list = document.createElement("li");
-    document.getElementById(`${uuid2}`).appendChild(list);
+    let li = document.createElement('li');
+    document.getElementById(`${uuid2}`).appendChild(li);
 
     images.push(uuid3);
-    list.setAttribute("id", `${uuid3}`);
+    li.setAttribute('id', `${uuid3}`);
 }
 
 let fetchPoke = (pokemon) => {
@@ -37,8 +37,10 @@ let fetchPoke = (pokemon) => {
             let pokemonsList = document.getElementById(`${uuid3}`);
             pokemonsList.textContent = data.name.toUpperCase();
 
+            let br = document.createElement('br');
+            document.getElementById(`${uuid2}`).appendChild(br);
 
-            let img = document.createElement("img");
+            let img = document.createElement('img');
             img.src = data.sprites.front_default;
             document.getElementById(`${uuid2}`).appendChild(img);
         });
@@ -49,12 +51,12 @@ let fetchPoke = (pokemon) => {
 let addPoke = async (event) => {
     event.preventDefault();
 
-    let input = document.getElementById("pokeTEXT");
+    let input = document.getElementById('pokeTEXT');
     let text = input.value;
 
     await fetchPoke(text);
 
-    input.value = "";
+    input.value = '';
 }
 
 let uuid = 1;
@@ -66,5 +68,5 @@ let names = [];
 let uuid3 = 1;
 let images = [];
 
-let form = document.getElementById("submitPokemon");
-form.addEventListener("submit", addPoke, true);
+let form = document.getElementById('submitPokemon');
+form.addEventListener('submit', addPoke, true);
