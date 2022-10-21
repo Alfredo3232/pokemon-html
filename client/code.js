@@ -1,5 +1,5 @@
 let addBox = (uuid, uuid2, uuid3) => {
-    //creating our container div element
+    // creating our container div element
     let box = document.createElement('div');
     document.getElementById('pokes').appendChild(box);
     box.classList.add('container');
@@ -8,7 +8,7 @@ let addBox = (uuid, uuid2, uuid3) => {
     box.setAttribute('id', `${uuid}`);
 
 
-    //creating  unordered list
+    // creating  unordered list
     let ul = document.createElement('ul');
     document.getElementById(`${uuid}`).appendChild(ul);
 
@@ -16,7 +16,7 @@ let addBox = (uuid, uuid2, uuid3) => {
     ul.setAttribute('id', `${uuid2}`);
 
 
-    //creating list
+    // creating list
     let li = document.createElement('li');
     document.getElementById(`${uuid2}`).appendChild(li);
 
@@ -24,22 +24,23 @@ let addBox = (uuid, uuid2, uuid3) => {
     li.setAttribute('id', `${uuid3}`);
 }
 
+// function that takes in string, and hits pokeAPI to find that pokemon. The data it uses is adds pokemon name and sprite img to our DOM
 let fetchPoke = (pokemon) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)
         .then((response) => response.json())
         .then((data) => {
+            // we are first increasing our 'uuid', then calling our addBox function and putting those uuids are arguments
             uuid++
             uuid2++
             uuid3++
             addBox(uuid, uuid2, uuid3);
 
-
+            // adding the pokemons name to the list element
             let pokemonsList = document.getElementById(`${uuid3}`);
-            pokemonsList.textContent = data.name.toUpperCase();
+            pokemonsList.textContent = data.name;
+            pokemonsList.textContent[0].toUpperCase();
 
-            let br = document.createElement('br');
-            document.getElementById(`${uuid2}`).appendChild(br);
-
+            // adding our img sprite to our unordered list 
             let img = document.createElement('img');
             img.src = data.sprites.front_default;
             document.getElementById(`${uuid2}`).appendChild(img);
@@ -47,30 +48,38 @@ let fetchPoke = (pokemon) => {
         .catch((error) => {
             alert('nel carnal, no encontre tu pokemon');
             console.log('error ->', error);
-        })
+        });
 }
 
 
 
 let addPoke = async (event) => {
+    // preventing the page from reloading
     event.preventDefault();
 
+    // taking the value of the user's input
     let input = document.getElementById('pokeTEXT');
     let text = input.value;
 
+    // we are waiting for this function to end
     await fetchPoke(text);
 
+    // we are reseting the input back to empty, when fetchPoke finishes
     input.value = '';
 }
 
+// a uuid for our containers
 let uuid = 1;
 let monsters = [];
 
-let uuid2 = 1;
+// a uuid for our unordered lists
+let uuid2 = 3;
 let names = [];
 
-let uuid3 = 1;
+// a uuid for our lists
+let uuid3 = 5;
 let images = [];
 
+// we are executing addPoke function when user submits
 let form = document.getElementById('submitPokemon');
 form.addEventListener('submit', addPoke, true);
