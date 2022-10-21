@@ -43,7 +43,11 @@ let fetchPoke = (pokemon) => {
             let img = document.createElement('img');
             img.src = data.sprites.front_default;
             document.getElementById(`${uuid2}`).appendChild(img);
-        });
+        })
+        .catch((error) => {
+            alert('nel carnal, no encontre tu pokemon');
+            console.log('error ->', error);
+        })
 }
 
 
