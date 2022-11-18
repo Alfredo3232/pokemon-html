@@ -31,9 +31,14 @@ form.addEventListener('submit', addPoke, true);
 
 // function that takes in string, and hits pokeAPI to find that pokemon. The data it uses is adds pokemon name and sprite img to our DOM
 let fetchPoke = (pokemon) => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)
-        .then((response) => response.json())
-        .then((data) => {
+    //disable eslint beacuse we have jquery in CDN
+    // eslint-disable-next-line no-undef
+    $.ajax({
+        url: `https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`,
+        type: 'GET',
+        data: {},
+        dataType: 'json',
+        success: function (data) {
             let tempPokemonObj = data;
             // we are first increasing our 'uuid', then calling our addBox function and putting those uuids are arguments
             uuid = uuid + Math.random() * 10;
@@ -49,11 +54,12 @@ let fetchPoke = (pokemon) => {
             let img = document.createElement('img');
             img.src = tempPokemonObj.sprites.front_default;
             document.getElementById(`${uuid2}`).appendChild(img);
-        })
-        .catch((error) => {
+        },
+        error: function (request, error) {
             alert('Incorrect Pokemon Name, Please Try Again');
             console.log('error ->', error);
-        });
+        }
+    });
 };
 
 let addBox = (uuid, uuid2, uuid3) => {

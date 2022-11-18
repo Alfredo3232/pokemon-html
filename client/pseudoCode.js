@@ -79,7 +79,7 @@
     // create a variable called li with the value of creating an element li
     // get the id of uuid2 (convert uuid2 into a string) and append your li variable
 
-    // push uuid3 into your names array
+    // push uuid3 into your images array
     // set an id to li and give it the string of uuid3 (convert uuid3 into a string)
 
 // end of function
