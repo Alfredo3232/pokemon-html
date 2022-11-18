@@ -29,20 +29,20 @@ let fetchPoke = (pokemon) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)
         .then((response) => response.json())
         .then((data) => {
+            let tempPokemonObj = data
             // we are first increasing our 'uuid', then calling our addBox function and putting those uuids are arguments
-            uuid++
-            uuid2++
-            uuid3++
+            uuid = uuid + Math.random() * 10
+            uuid2 = uuid2 + Math.random() * 10
+            uuid3 = uuid3 + Math.random() * 10
             addBox(uuid, uuid2, uuid3);
 
             // adding the pokemons name to the list element
             let pokemonsList = document.getElementById(`${uuid3}`);
-            pokemonsList.textContent = data.name;
-            pokemonsList.textContent[0].toUpperCase();
+            pokemonsList.textContent = tempPokemonObj.name;
 
             // adding our img sprite to our unordered list 
             let img = document.createElement('img');
-            img.src = data.sprites.front_default;
+            img.src = tempPokemonObj.sprites.front_default;
             document.getElementById(`${uuid2}`).appendChild(img);
         })
         .catch((error) => {
@@ -73,11 +73,11 @@ let uuid = 1;
 let monsters = [];
 
 // a uuid for our unordered lists
-let uuid2 = 3;
+let uuid2 = 20;
 let names = [];
 
 // a uuid for our lists
-let uuid3 = 5;
+let uuid3 = 30;
 let images = [];
 
 // we are executing addPoke function when user submits
