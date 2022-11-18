@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/arojas32/PokemonHTML#readme",
   "devDependencies": {
-    "eslint": "^8.25.0"
+    "eslint": "^8.27.0"
   }
 }

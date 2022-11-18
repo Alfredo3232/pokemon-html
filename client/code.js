@@ -51,8 +51,6 @@ let fetchPoke = (pokemon) => {
         });
 }
 
-
-
 let addPoke = async (event) => {
     // preventing the page from reloading
     event.preventDefault();
