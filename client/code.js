@@ -46,7 +46,7 @@ let fetchPoke = (pokemon) => {
             document.getElementById(`${uuid2}`).appendChild(img);
         })
         .catch((error) => {
-            alert('nel carnal, no encontre tu pokemon');
+            alert('Incorrect Pokemon Name, Please Try Again');
             console.log('error ->', error);
         });
 }
