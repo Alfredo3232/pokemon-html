@@ -10,7 +10,7 @@ let names = [];
 let uuid3 = 30;
 let images = [];
 
-let addPoke = async (event) => {
+let addPoke = (event) => {
     // preventing the page from reloading
     event.preventDefault();
 
@@ -19,7 +19,7 @@ let addPoke = async (event) => {
     let text = input.value;
 
     // we are waiting for this function to end
-    await fetchPoke(text);
+    fetchPoke(text);
 
     // we are reseting the input back to empty, when fetchPoke finishes
     input.value = '';
