@@ -1,5 +1,5 @@
 {
-  "name": "pokemonhtml",
+  "name": "pokemon-html",
   "version": "1.0.0",
   "description": "pokemon website built on CSS, HTML, JS. Hitting the Poke API to show pokemon info on page",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arojas32/PokemonHTML.git"
+    "url": "git+https://github.com/alfredo3232/PokemonHTML.git"
   },
-  "author": "arojas32",
+  "author": "alfredo3232",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/arojas32/PokemonHTML/issues"
+    "url": "https://github.com/alfredo3232/PokemonHTML/issues"
   },
-  "homepage": "https://github.com/arojas32/PokemonHTML#readme",
+  "homepage": "https://github.com/alfredo3232/PokemonHTML#readme",
   "devDependencies": {
-    "eslint": "^8.27.0"
+    "eslint": "^8.34.0"
   }
 }

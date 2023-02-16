@@ -18,7 +18,7 @@
     // create a variable called text and give it the value of input.value
 
 
-    // call fetchpoken and pass in the argument of text
+    // call fetchpoke and pass in the argument of text
 
 
     // input.value and set it to an empty string
@@ -27,7 +27,7 @@
 
 
 // create a variable called form and target the id of  'submitPokemon'
-// add an eventListener to form and pass in submit, addpoke, and true as arguements
+// add an eventListener to form and pass in submit, addpoke, and true as arguments
 
 
 // create a function expression called fetchPoke and pass in pokemon
